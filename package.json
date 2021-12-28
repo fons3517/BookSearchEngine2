@@ -1,0 +1,18 @@
+{
+	"name": "booksearchengine",
+	"version": "1.0.0",
+	"description": "Book search engine created to help search for books to read to create a purchase list",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@utsa.bootcampcontent.com:utsa-bootcamp/utsa-san-fsf-pt-07-2021-u-c.git"
+	},
+	"author": "Alfonso Robles",
+	"license": "MIT",
+	"dependencies": {
+		"mongodb": "^4.2.2"
+	}
+}
