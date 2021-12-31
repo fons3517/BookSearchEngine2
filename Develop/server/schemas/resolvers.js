@@ -1,4 +1,3 @@
-const { Apollo } = require('apollo-server');
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Book } = require('../models');
 const { signToken } = require('../utils/auth');
@@ -49,6 +48,12 @@ const resolvers = {
 
       return { token, user };
     },
-    addBook: async(parent, { bookTitle })
+    savedBook: async (parent, { bookData }, context) => {
+      if (context.user) {
+        const addBook = await Book.create({
+
+        });
+      }
+    },
   }
 }
