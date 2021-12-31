@@ -16,7 +16,7 @@ db.once('open', async () => {
         { username: bookAuthor },
         {
           $addToSet: {
-            books: _id,,
+            books: _id,
           }
         }
       );
