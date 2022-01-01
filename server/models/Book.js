@@ -16,6 +16,9 @@ const bookSchema = new Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String,
+  },
   link: {
     type: String,
   },
@@ -23,9 +26,6 @@ const bookSchema = new Schema({
     type: String,
     required: true,
   },
-  image: {
-    type: String,
-  }
 });
 
 module.exports = bookSchema;
