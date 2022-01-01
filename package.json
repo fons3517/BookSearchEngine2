@@ -1,22 +1,18 @@
 {
-	"name": "booksearchengine",
-	"version": "1.0.0",
-	"description": "Book search engine created to help search for books to read to create a purchase list",
-	"main": "index.js",
-	"scripts": {
-		"test": "jest"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git@utsa.bootcampcontent.com:utsa-bootcamp/utsa-san-fsf-pt-07-2021-u-c.git"
-	},
-	"author": "Alfonso Robles",
-	"license": "MIT",
-	"dependencies": {
-		"apollo-server": "^3.5.0",
-		"bootstrap": "^5.1.3",
-		"graphql": "^15.8.0",
-		"mongodb": "^4.2.2",
-		"react": "^17.0.2"
-	}
+  "name": "googlebooks-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  }
 }
