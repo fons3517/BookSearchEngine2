@@ -6,7 +6,7 @@ type User {
   _id: ID
   username: String
   email: String
-  password: String
+  bookNum: Int
   savedBooks: [Book]
 }
 
@@ -29,7 +29,7 @@ type Query {
   me: User
 }
 
-Input BookInput {
+input BookInput {
   authors: [String]
   description: String!
   bookId: String!
@@ -44,6 +44,6 @@ login(email:String!, password: String!): Auth
 savedBook(bookData: BookInput!): User
 removeBook(bookId: ID!): User
 }
-`
+`;
 
 module.exports = typeDefs;

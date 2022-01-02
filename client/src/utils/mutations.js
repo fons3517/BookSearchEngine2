@@ -52,9 +52,9 @@ mutation removeBook($bookId: String!) {
       bookId
       authors
       description
+      link
       title
       image
-      link
     }
   }
 }

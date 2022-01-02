@@ -35,7 +35,7 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('No user found with this email address');
+        throw new AuthenticationError('Error!!! Please try again!');
       }
 
       const correctPw = await user.isCorrectPassword(password);
@@ -48,14 +48,28 @@ const resolvers = {
 
       return { token, user };
     },
-    savedBook: async (parent, { bookData }, context) => {
+    savedBook: async (parent, { BookInput }, context) => {
       if (context.user) {
-        const addBook = await Book.create({
-
-        });
+        const updatedInfo = await User.findOndeAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { savedBooks: BookInput } },
+          { new: true }
+        );
+        return updatedInfo;
       }
+      throw new AuthenticationError('Login Error!!! Please try again');
     },
-  }
-}
+  },
+  removeBook: async (parent, { bookId }, context) => {
+    if (context.user) {
+      const updatedInfo = await User.findOndeAndUpdate(
+        { _id: context.user._id },
+        { $pull: { savedBooks: { bookId } } },
+        { new: true },
+      )
+      return updatedInfo;
+    };
+  },
+};
 
 module.exports = resolvers;
