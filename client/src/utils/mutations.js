@@ -7,6 +7,16 @@ mutation login($email: String!, $password: String!) {
     user {
       _id
       username
+      email
+      bookCount
+      savedBooks {
+      bookId
+      authors
+      description
+      link
+      title
+      image
+      }
     }
   }
 }
@@ -19,6 +29,16 @@ mutation addUser($username: String!, $email: String!, $password: String!) {
     user {
       _id
       username
+      email
+      bookCount
+      savedBooks {
+      bookId
+      authors
+      description
+      link
+      title
+      image
+      }
     }
   }
 }
@@ -30,13 +50,14 @@ mutation saveBook($input: bookInput!) {
     _id
     username
     email
+    bookCount
     savedBooks {
       bookId
       authors
       description
+      link
       title
       image
-      link
     }
   }
 }
@@ -48,6 +69,7 @@ mutation removeBook($bookId: String!) {
     _id
     username
     email
+    bookCount
     savedBooks {
       bookId
       authors
