@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Book } = require('../models');
+const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -39,24 +39,28 @@ const resolvers = {
       if (context.user) {
         const updatedInfo = await User.findOndeAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedBooks: BookInput } },
+          { $addToSet: { savedBooks: { BookInput } } },
           { new: true }
         );
         return updatedInfo;
       }
       throw new AuthenticationError('Login Error!!! Please try again');
     },
-  },
-  removeBook: async (parent, { bookId }, context) => {
-    if (context.user) {
-      const updatedInfo = await User.findOndeAndUpdate(
-        { _id: context.user._id },
-        { $pull: { savedBooks: { bookId } } },
-        { new: true },
-      )
-      return updatedInfo;
-    };
-  },
+
+    removeBook: async (parent, { bookId }, context) => {
+      if (context.user) {
+        const updatedInfo = await User.findOndeAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedBooks: { bookId } } },
+          { new: true },
+        )
+        return updatedInfo;
+      };
+      throw new AuthenticationError('Sorry. There was an error. Please try again')
+    },
+  }
 };
+
+
 
 module.exports = resolvers;
