@@ -34,6 +34,6 @@ Alfonso Robles
 
 [Book_Search_Engine](https://vast-escarpment-69922.herokuapp.com/)
 
-![Landing Page](./assets/images/LandingPage.jpg)
-![Search Books](./assets/images/SearchBooks.jpg)
-![Login/SignUp](./assets/images/LoginSignUp.jpg)
+- ![Landing Page](Assets/images/LandingPage.jpg)
+- ![Search Books](Assets/images/SearchBooks.jpg)
+- ![Login/SignUp](Assets/images/LoginSignUp.jpg)
